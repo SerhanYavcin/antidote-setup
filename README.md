@@ -1,98 +1,140 @@
-# 🚀 Antidote Installation Guide
+# 🚀 Antidote Zsh Setup
 
-Comprehensive installation script for a modern, fast, and high-performance Zsh setup.
+A complete, high-performance Zsh configuration toolkit featuring the **Antidote** plugin manager, **Starship** prompt, and modern CLI tools. Designed to replace Oh My Zsh with a significantly faster and more efficient setup.
 
-## 📦 Contents
+![Shell](https://img.shields.io/badge/Shell-Zsh-green?style=flat-square&logo=gnu-bash)
+![Platform](https://img.shields.io/badge/Platform-macOS-blue?style=flat-square&logo=apple)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
 
-This installation script includes:
+## ✨ Features
 
-### Plugin Manager
-- **Antidote** - Ultra-fast, native Zsh plugin manager
+- **⚡ Ultra-fast startup** - ~80% faster than Oh My Zsh (50-150ms vs 500-1000ms)
+- **🔌 Antidote plugin manager** - Native Zsh, lazy-loading, efficient
+- **🌟 Starship prompt** - Blazing fast, highly customizable, cross-shell
+- **🛠️ Modern CLI tools** - fzf, zoxide, eza, bat integration
+- **🔄 Oh My Zsh compatible** - Use existing OMZ plugins seamlessly
+- **💾 Safe migration** - Automatic backups of existing configurations
+
+## 📦 What's Included
+
+### Core Components
+
+| Component                                  | Description                                |
+| ------------------------------------------ | ------------------------------------------ |
+| [Antidote](https://getantidote.github.io/) | Ultra-fast, native Zsh plugin manager      |
+| [Starship](https://starship.rs/)           | Minimal, blazing-fast, customizable prompt |
 
 ### Modern CLI Tools
-- **Starship** - Fast, customizable prompt
-- **fzf** - Fuzzy finder (History search with Ctrl+R)
-- **zoxide** - Smart cd (z command)
-- **bat** - Colorful cat
-- **eza** - Modern ls alternative
 
-### Zsh Plugins
-- zsh-autosuggestions - Command suggestions
-- zsh-syntax-highlighting - Syntax highlighting
-- zsh-completions - Advanced completion
-- zsh-history-substring-search - History search
-- fzf-tab - fzf for tab completion
-- Oh My Zsh plugins (git, docker, kubectl, etc.)
+| Tool                                            | Description                                  | Replaces |
+| ----------------------------------------------- | -------------------------------------------- | -------- |
+| [fzf](https://github.com/junegunn/fzf)          | Fuzzy finder for history, files, directories | -        |
+| [zoxide](https://github.com/ajeetdsouza/zoxide) | Smarter cd command with learning             | cd       |
+| [eza](https://github.com/eza-community/eza)     | Modern ls with icons and git integration     | ls       |
+| [bat](https://github.com/sharkdp/bat)           | Cat clone with syntax highlighting           | cat      |
 
-## 🎯 Installation
+### Pre-configured Plugins
 
-### Quick Install
+**Essential:**
+
+- `zsh-autosuggestions` - Fish-like autosuggestions
+- `zsh-syntax-highlighting` - Real-time syntax highlighting
+- `zsh-completions` - Additional completion definitions
+- `zsh-history-substring-search` - History search with ↑/↓
+- `fzf-tab` - fzf-powered tab completion
+
+**Oh My Zsh Plugins:**
+
+- git, docker, docker-compose, kubectl
+- aws, golang, node, npm, python, pip, vscode
+
+## 🎯 Quick Start
+
+### Prerequisites
+
+- macOS with [Homebrew](https://brew.sh/) installed
+- Zsh shell (default on macOS)
+
+### Installation
 
 ```bash
-# Run the script
+# Clone the repository
+git clone https://github.com/your-username/antidote-setup.git
+cd antidote-setup
+
+# Run the installer
 bash install-antidote.sh
 
-# Restart the shell
+# Restart your shell
 exec zsh
 ```
 
-### Manual Steps
+### Font Setup (Required for Icons)
 
-If you want to proceed step by step:
-
-#### 1. Homebrew Packages
+Starship uses Nerd Font symbols. Install a Nerd Font for best experience:
 
 ```bash
-brew install starship fzf zoxide bat eza
+# Quick install (recommended)
+bash install-nerd-fonts.sh
+
+# Or manual install
+brew install --cask font-jetbrains-mono-nerd-font
 ```
 
-#### 2. Antidote
+Then configure your terminal to use the installed Nerd Font.
 
-```bash
-git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote
+> 📖 See [FONT-GUIDE.md](FONT-GUIDE.md) for detailed font configuration instructions.
+
+## 📂 Repository Structure
+
+```
+antidote-setup/
+├── install-antidote.sh      # Main installation script
+├── install-nerd-fonts.sh    # Nerd Font installer with menu
+├── starship.toml            # Custom Starship configuration (Neon Developer theme)
+├── README.md                # This file
+├── CHEATSHEET.md            # Quick reference guide
+├── FONT-GUIDE.md            # Comprehensive font setup guide
+└── FONT-QUICKSTART.md       # Quick font installation commands
 ```
 
-#### 3. Configuration
+## 🔧 Generated Configuration Files
 
-The script automatically generates:
-- `~/.zshrc` - Main configuration
-- `~/.zsh_plugins.txt` - Plugin list
-- `~/.config/starship.toml` - Starship prompt settings
+The installer creates these files in your home directory:
 
-## 📖 Usage
+| File                      | Purpose                                                      |
+| ------------------------- | ------------------------------------------------------------ |
+| `~/.zshrc`                | Main Zsh configuration with aliases, functions, and settings |
+| `~/.zsh_plugins.txt`      | Plugin list for Antidote                                     |
+| `~/.config/starship.toml` | Starship prompt configuration                                |
 
-### Basic Commands
+## ⚡ Usage
+
+### Essential Commands
 
 ```bash
-# Reload shell
-reload
-
-# Edit configuration
-zshconfig
-
-# Edit plugin list
-pluginconfig
-
-# Update plugins
-antidote update
+reload              # Reload .zshrc configuration
+zshconfig           # Edit .zshrc in your editor
+pluginconfig        # Edit plugin list
+antidote update     # Update all plugins
 ```
 
-### Modern CLI Tools
+### Modern Tool Shortcuts
 
 ```bash
-# Zoxide - Smart cd
-z Documents    # Frequently visited directories
-zi             # Interactive selection
+# Zoxide - Smart directory navigation
+z <partial-path>    # Jump to frequently visited directory
+zi                  # Interactive directory selection
 
-# FZF - Fuzzy finder
-Ctrl+R         # Command history search
-Ctrl+T         # File search
-Alt+C          # Directory search
+# FZF - Fuzzy finding
+Ctrl+R              # Search command history
+Ctrl+T              # Search files
+Alt+C               # Search directories
 
-# Eza - Modern ls
-ls             # Listing with icons
-ll             # Long format with icons
-lt             # Tree view
+# Eza - Enhanced file listing
+ls                  # List with icons
+ll                  # Long format with details
+lt                  # Tree view (2 levels)
 ```
 
 ### Git Aliases
@@ -102,7 +144,7 @@ gs    # git status
 ga    # git add
 gc    # git commit
 gp    # git push
-gl    # git log (fancy)
+gl    # git log --oneline --graph --decorate
 ```
 
 ### Docker Aliases
@@ -114,251 +156,150 @@ di    # docker images
 dc    # docker-compose
 ```
 
+### Utility Functions
+
+```bash
+mkcd <dir>          # Create directory and cd into it
+extract <archive>   # Extract any archive format
+server [port]       # Start Python HTTP server (default: 8000)
+```
+
 ## 🎨 Customization
 
-### Adding/Removing Plugins
+### Adding Plugins
 
-1. Open `~/.zsh_plugins.txt`:
+Edit `~/.zsh_plugins.txt`:
+
 ```bash
-vim ~/.zsh_plugins.txt
-```
-
-2. Add plugin:
-```
-# From GitHub
+# GitHub repository
 username/repository
 
 # Oh My Zsh plugin
 ohmyzsh/ohmyzsh path:plugins/plugin-name
 
-# Local plugin
-/path/to/plugin
+# Local file
+/path/to/local/plugin.zsh
 ```
 
-3. Reload shell:
+Then reload: `reload`
+
+### Customizing Starship
+
+This repo includes a custom **Neon Developer** theme in `starship.toml`. To use it:
+
 ```bash
-reload
+# Copy the included theme
+cp starship.toml ~/.config/starship.toml
 ```
 
-### Starship Prompt Customization
+Or try Starship presets:
 
 ```bash
-# Open config file
-vim ~/.config/starship.toml
-
-# Try presets
 starship preset nerd-font-symbols -o ~/.config/starship.toml
 starship preset pastel-powerline -o ~/.config/starship.toml
+starship preset bracketed-segments -o ~/.config/starship.toml
 ```
 
-All presets: https://starship.rs/presets/
+> 🎨 All presets: https://starship.rs/presets/
 
-### Adding Aliases
+### Adding Custom Aliases
 
-Add to the end of `~/.zshrc`:
+Add to the "Personal Additions" section at the end of `~/.zshrc`:
 
 ```bash
-# Personal Additions section
 alias myalias='my-command'
 ```
 
-## 🔧 Troubleshooting
+## 🐛 Troubleshooting
 
-### Plugin Not Loading
+### Plugins Not Loading
 
 ```bash
-# Clear plugin cache
 rm -f ~/.zsh_plugins.zsh
-
-# Regenerate
 antidote bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.zsh
-
-# Restart shell
 exec zsh
 ```
 
-### Starship Not Visible
+### Icons Not Displaying
 
-```bash
-# Check if Starship is installed
-which starship
-
-# If not installed
-brew install starship
-
-# Font required (Nerd Font)
-# https://www.nerdfonts.com/
-```
+- Ensure a Nerd Font is installed
+- Configure your terminal to use the Nerd Font
+- See [FONT-GUIDE.md](FONT-GUIDE.md) for detailed instructions
 
 ### Slow Startup
 
 ```bash
-# Measure Zsh startup time
+# Measure startup time
 for i in $(seq 1 10); do /usr/bin/time zsh -i -c exit; done
 
-# Reduce number of plugins
-vim ~/.zsh_plugins.txt
+# Reduce plugins in ~/.zsh_plugins.txt
 ```
 
-### Completion Not Working
+### Completion Issues
 
 ```bash
-# Clear completion cache
 rm -f ~/.zcompdump*
+exec zsh
+```
 
-# Restart shell
+### Restore Previous Configuration
+
+```bash
+# List backups
+ls -la ~/.zshrc.backup.*
+
+# Restore specific backup
+mv ~/.zshrc.backup.YYYYMMDD_HHMMSS ~/.zshrc
 exec zsh
 ```
 
 ## 📊 Performance Comparison
 
-### Oh My Zsh (Previous)
-```
-Startup time: ~500-1000ms
-Plugins: 10-20
-Memory: ~40-50MB
-```
+| Metric         | Oh My Zsh  | Antidote          |
+| -------------- | ---------- | ----------------- |
+| Startup Time   | 500-1000ms | 50-150ms          |
+| Memory Usage   | ~40-50MB   | ~15-20MB          |
+| Plugin Support | ✅         | ✅ (same plugins) |
 
-### Antidote (Now)
-```
-Startup time: ~50-150ms
-Plugins: 10-20 (same)
-Memory: ~15-20MB
-```
+**Result: ~80% faster startup, ~60% less memory**
 
-**~80% faster! ⚡**
+## 📚 Documentation
 
-## 🔄 Migration from Oh My Zsh
+- [CHEATSHEET.md](CHEATSHEET.md) - Quick reference for commands and shortcuts
+- [FONT-GUIDE.md](FONT-GUIDE.md) - Comprehensive Nerd Font installation and configuration
+- [FONT-QUICKSTART.md](FONT-QUICKSTART.md) - Quick font installation commands
 
-The script automatically:
-- ✅ Backs up existing `.zshrc`
-- ✅ Continues using Oh My Zsh plugins
-- ✅ Preserves all aliases
-- ❌ Does **not** delete Oh My Zsh (kept in backup)
-
-### Manual Migration Tips
-
-1. Convert Oh My Zsh plugins to Antidote format:
-
-**Oh My Zsh:**
-```bash
-plugins=(git docker kubectl)
-```
-
-**Antidote:**
-```
-ohmyzsh/ohmyzsh path:plugins/git
-ohmyzsh/ohmyzsh path:plugins/docker
-ohmyzsh/ohmyzsh path:plugins/kubectl
-```
-
-2. Themes now use Starship:
-```bash
-# Old: ZSH_THEME="agnoster"
-# New: Use Starship presets
-```
-
-## 🌟 Recommended Additional Plugins
-
-### Development
-```
-# Add to ~/.zsh_plugins.txt
-zsh-users/zsh-docker-aliases
-lukechilds/zsh-nvm
-zdharma-continuum/fast-syntax-highlighting
-```
-
-### Productivity
-```
-agkozak/zsh-z
-unixorn/git-extra-commands
-djui/alias-tips
-```
-
-### macOS Specific
-```
-ohmyzsh/ohmyzsh path:plugins/macos
-ohmyzsh/ohmyzsh path:plugins/brew
-```
-
-## 📚 Resources
+## 🔗 Resources
 
 - [Antidote Documentation](https://getantidote.github.io/)
 - [Starship Documentation](https://starship.rs/)
+- [Nerd Fonts](https://www.nerdfonts.com/)
 - [Awesome Zsh Plugins](https://github.com/unixorn/awesome-zsh-plugins)
-- [Zsh Best Practices](https://wiki.archlinux.org/title/Zsh)
+- [iTerm2 Color Schemes](https://iterm2colorschemes.com/)
 
-## 🆘 Support
+## 🔒 Safety
 
-Having trouble?
+The installation script:
 
-1. Check backups:
-```bash
-ls -la ~/.zshrc.backup.*
-ls -la ~/.oh-my-zsh.backup.*
-```
+- ✅ Creates timestamped backups of existing `.zshrc` and `.oh-my-zsh`
+- ✅ Does not delete any existing files
+- ✅ Uses `set -e` to exit on any error
+- ✅ Only modifies user home directory files
 
-2. Revert to old config:
-```bash
-mv ~/.zshrc.backup.YYYYMMDD_HHMMSS ~/.zshrc
-exec zsh
-```
+## 🤝 Contributing
 
-3. Start fresh:
-```bash
-rm -rf ~/.antidote ~/.zsh_plugins*
-bash install-antidote.sh
-```
+Contributions are welcome! Feel free to:
 
-## 🎓 Learning Resources
+- Report issues
+- Suggest new plugins or configurations
+- Submit pull requests
 
-### Zsh Shortcuts
-```
-Ctrl+A    # Beginning of line
-Ctrl+E    # End of line
-Ctrl+U    # Delete line
-Ctrl+K    # Delete to end
-Ctrl+W    # Delete word
-Ctrl+R    # History search (fzf)
-Ctrl+L    # Clear screen
-```
+## 📝 License
 
-### Directory Navigation
-```
-cd -      # Go to previous directory
-cd ~      # Go to Home
-cd ..     # Go up one directory
-..        # cd .. (alias)
-...       # cd ../.. (alias)
-z docs    # Fast navigation with Zoxide
-```
-
-## ✨ Pro Tips
-
-1. **Use Tab Completion**: Press tab for everything
-2. **History Search**: Search past commands with `Ctrl+R`
-3. **Learn Zoxide**: Navigate to frequent directories with `z`
-4. **Create Aliases**: For frequently used commands
-5. **Git Prompt**: See branch and status info in prompt
-
-## 🔒 Security
-
-The script:
-- ✅ Backs up all existing files
-- ✅ Deletes nothing
-- ✅ Exits on error (set -e)
-- ✅ Runs only in user directory
-
-## 📝 Changelog
-
-### v1.0.0
-- Initial release
-- Antidote + Starship integration
-- Modern CLI tools
-- Comprehensive plugin collection
+This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
 **Happy hacking! 🚀**
 
-Made with ❤️ for software developers
+_Made with ❤️ for developers who value speed and efficiency_

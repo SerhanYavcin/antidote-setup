@@ -1,0 +1,388 @@
+# ╔══════════════════════════════════════════════════════════╗
+# ║  Starship Prompt · Neon Developer Edition               ║
+# ║  Node.js · Python · Docker · Git                        ║
+# ╚══════════════════════════════════════════════════════════╝
+
+scan_timeout = 10
+command_timeout = 200
+add_newline = true
+
+palette = "neon_dev"
+
+format = """
+[╭─](bold fg:frame)\
+$os\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$fill\
+$nodejs\
+$python\
+$docker_context\
+$cmd_duration\
+$line_break\
+[╰─](bold fg:frame)\
+$character"""
+
+[palettes.neon_dev]
+frame = "#6C7086"
+dir_fg = "#89DCEB"
+dir_icon = "#74C7EC"
+git_branch_fg = "#CBA6F7"
+git_status_fg = "#F9E2AF"
+node_fg = "#A6E3A1"
+python_fg = "#89B4FA"
+docker_fg = "#74C7EC"
+duration_fg = "#9399B2"
+success = "#A6E3A1"
+error = "#F38BA8"
+os_fg = "#BAC2DE"
+separator = "#585B70"
+
+# ── Prompt Character ──
+
+[character]
+success_symbol = "[](bold fg:success)"
+error_symbol = "[](bold fg:error)"
+vimcmd_symbol = "[](bold cyan)"
+format = "$symbol "
+
+# ── Fill ──
+
+[fill]
+symbol = "─"
+style = "bold fg:separator"
+
+# ── OS Icon ──
+
+[os]
+disabled = false
+style = "fg:os_fg"
+format = "[$symbol ]($style)"
+
+[os.symbols]
+Macos = "󰀵"
+Linux = "󰌽"
+Windows = "󰍲"
+
+# ── Directory ──
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = " …/"
+read_only = " 󰌾"
+home_symbol = "󰋜 ~"
+style = "bold fg:dir_fg"
+read_only_style = "fg:error"
+format = "[  $path]($style)[$read_only]($read_only_style) "
+
+[directory.substitutions]
+"Documents" = "󰈙 Documents"
+"Downloads" = "󰉍 Downloads"
+"Projects" = "󰲋 Projects"
+"Desktop" = "󰇄 Desktop"
+".config" = " .config"
+
+# ── Git Branch ──
+
+[git_branch]
+symbol = ""
+style = "bold fg:git_branch_fg"
+format = "[│](fg:separator) [$symbol $branch(:$remote_branch)]($style) "
+truncation_length = 28
+truncation_symbol = "…"
+only_attached = false
+
+# ── Git Status ──
+
+[git_status]
+style = "fg:git_status_fg"
+format = '([$all_status$ahead_behind]($style) )'
+ahead = " ⇡${count}"
+behind = " ⇣${count}"
+diverged = " ⇕⇡${ahead_count}⇣${behind_count}"
+conflicted = " =${count}"
+modified = " 󰏫${count}"
+staged = " 󰐕${count}"
+untracked = " 󰋗${count}"
+deleted = " 󰍴${count}"
+renamed = " 󰑕${count}"
+stashed = " 󰆓${count}"
+ignore_submodules = true
+
+[git_metrics]
+disabled = true
+
+[git_commit]
+disabled = true
+
+[git_state]
+format = '[ \($state( $progress_current/$progress_total)\)]($style) '
+style = "bold fg:git_status_fg"
+
+# ── Node.js ──
+
+[nodejs]
+symbol = ""
+style = "fg:node_fg"
+format = "[│](fg:separator) [$symbol $version]($style) "
+detect_files = ["package.json", ".nvmrc"]
+detect_folders = ["node_modules"]
+detect_extensions = []
+not_capable_style = "bold fg:error"
+
+# ── Python ──
+
+[python]
+symbol = "󰌠"
+style = "fg:python_fg"
+format = '[│](fg:separator) [$symbol $version( \($virtualenv\))]($style) '
+detect_files = ["pyproject.toml", "requirements.txt", "Pipfile", "poetry.lock"]
+detect_folders = []
+detect_extensions = []
+
+# ── Docker ──
+
+[docker_context]
+symbol = "󰡨"
+style = "fg:docker_fg"
+format = "[│](fg:separator) [$symbol $context]($style) "
+detect_files = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml"]
+detect_folders = []
+detect_extensions = []
+only_with_files = true
+
+# ── Command Duration ──
+
+[cmd_duration]
+min_time = 800
+style = "fg:duration_fg"
+format = "[│](fg:separator) [󱎫 $duration]($style) "
+show_milliseconds = false
+show_notifications = false
+
+# ── Disabled Modules ──
+
+[aws]
+disabled = true
+
+[azure]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[rust]
+disabled = true
+
+[golang]
+disabled = true
+
+[java]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[terraform]
+disabled = true
+
+[battery]
+disabled = true
+
+[time]
+disabled = true
+
+[username]
+disabled = true
+
+[hostname]
+disabled = true
+
+[package]
+disabled = true
+
+[buf]
+disabled = true
+
+[bun]
+disabled = true
+
+[c]
+disabled = true
+
+[cmake]
+disabled = true
+
+[cobol]
+disabled = true
+
+[crystal]
+disabled = true
+
+[daml]
+disabled = true
+
+[dart]
+disabled = true
+
+[deno]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[erlang]
+disabled = true
+
+[fennel]
+disabled = true
+
+[fossil_branch]
+disabled = true
+
+[fossil_metrics]
+disabled = true
+
+[gradle]
+disabled = true
+
+[guix_shell]
+disabled = true
+
+[haskell]
+disabled = true
+
+[haxe]
+disabled = true
+
+[helm]
+disabled = true
+
+[julia]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[lua]
+disabled = true
+
+[meson]
+disabled = true
+
+[nim]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[odin]
+disabled = true
+
+[opa]
+disabled = true
+
+[openstack]
+disabled = true
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[pijul_channel]
+disabled = true
+
+[pulumi]
+disabled = true
+
+[purescript]
+disabled = true
+
+[quarto]
+disabled = true
+
+[rlang]
+disabled = true
+
+[raku]
+disabled = true
+
+[red]
+disabled = true
+
+[ruby]
+disabled = true
+
+[scala]
+disabled = true
+
+[solidity]
+disabled = true
+
+[spack]
+disabled = true
+
+[sudo]
+disabled = true
+
+[swift]
+disabled = true
+
+[typst]
+disabled = true
+
+[vagrant]
+disabled = true
+
+[vlang]
+disabled = true
+
+[vcsh]
+disabled = true
+
+[zig]
+disabled = true
+
+[singularity]
+disabled = true
+
+[conda]
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[env_var]
+disabled = true
+
+[jobs]
+disabled = true
+
+[localip]
+disabled = true
+
+[shell]
+disabled = true
+
+[shlvl]
+disabled = true
+
+[status]
+disabled = true
+
+[container]
+disabled = true
