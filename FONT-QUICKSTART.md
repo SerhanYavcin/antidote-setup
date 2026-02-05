@@ -1,14 +1,14 @@
-# ⚡ Hızlı Font Kurulum Komutları
+# ⚡ Quick Font Installation Commands
 
-## 🎯 Tek Komutla Kurulum
+## 🎯 Single Command Installation
 
-### En Popüler: JetBrainsMono (Önerilen)
+### Most Popular: JetBrainsMono (Recommended)
 ```bash
 brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 ```
 
-### Diğer Seçenekler
+### Other Options
 
 **FiraCode (Ligature):**
 ```bash
@@ -30,7 +30,7 @@ brew install --cask font-meslo-lg-nerd-font
 brew install --cask font-caskaydia-cove-nerd-font
 ```
 
-### Hepsini Kur
+### Install All
 ```bash
 brew tap homebrew/cask-fonts
 brew install --cask \
@@ -43,7 +43,7 @@ brew install --cask \
 
 ---
 
-## 🔧 Terminal Ayarları (Hızlı)
+## 🔧 Terminal Settings (Quick)
 
 ### macOS Terminal
 ```
@@ -53,17 +53,17 @@ Profiles → Text → Font → Change
 → Set as Default
 ```
 
-### iTerm2 (Önerilen)
+### iTerm2 (Recommended)
 ```bash
-# Önce kur
+# Install first
 brew install --cask iterm2
 
-# Sonra ayarla
+# Then configure
 iTerm2 → Preferences (⌘,)
 Profiles → Text
 → Font: "JetBrainsMono Nerd Font"
 → Size: 13
-→ Use ligatures: ✓ (FiraCode için)
+→ Use ligatures: ✓ (For FiraCode)
 ```
 
 ### VS Code Terminal
@@ -78,25 +78,25 @@ Profiles → Text
 
 ## ✅ Test
 
-Terminal'de:
+In Terminal:
 ```bash
 echo "      "
 ```
 
-İkonları görüyorsan ✅ tamam!
-Kutucuklar görüyorsan ❌ font ayarlanmamış.
+If you see icons ✅ done!
+If you see boxes ❌ font is not set.
 
 ---
 
-## 🎨 Bonus: iTerm2 Tema
+## 🎨 Bonus: iTerm2 Theme
 
-**Gruvbox Dark (Önerilen):**
+**Gruvbox Dark (Recommended):**
 ```bash
 curl -L https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors -o ~/Downloads/Gruvbox.itermcolors
 
-# iTerm2'de:
+# In iTerm2:
 # Profiles → Colors → Color Presets → Import
-# Gruvbox.itermcolors dosyasını seç
+# Select Gruvbox.itermcolors file
 ```
 
 **Nord:**
@@ -111,25 +111,25 @@ curl -L https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/
 
 ---
 
-## 🚀 Tüm Setup (Tek Seferde)
+## 🚀 Full Setup (One Shot)
 
 ```bash
-# Font + Terminal + Tema
+# Font + Terminal + Theme
 brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font iterm2
 
-# Gruvbox tema indir
+# Download Gruvbox theme
 curl -L https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors -o ~/Downloads/Gruvbox.itermcolors
 
-echo "✅ Kurulum tamam!"
+echo "✅ Installation complete!"
 echo ""
-echo "Şimdi:"
-echo "1. iTerm2'yi aç"
+echo "Now:"
+echo "1. Open iTerm2"
 echo "2. ⌘, → Profiles → Text → Font: JetBrainsMono Nerd Font (13pt)"
 echo "3. ⌘, → Profiles → Colors → Color Presets → Import → Gruvbox.itermcolors"
-echo "4. Terminal'i kapat ve tekrar aç"
+echo "4. Close and reopen Terminal"
 ```
 
 ---
 
-**Daha detaylı bilgi:** FONT-GUIDE.md dosyasına bak!
+**More detailed info:** Check FONT-GUIDE.md file!

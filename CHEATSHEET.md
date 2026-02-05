@@ -1,45 +1,45 @@
-# 🎯 Antidote Hızlı Referans
+# 🎯 Antidote Quick Reference
 
-## 🚀 Kurulum Sonrası İlk Adımlar
+## 🚀 Post-Installation First Steps
 
 ```bash
-# 1. Scripti çalıştır
+# 1. Run the script
 bash install-antidote.sh
 
-# 2. Shell'i yeniden başlat
+# 2. Restart the shell
 exec zsh
 
-# VEYA terminal'i kapat ve tekrar aç
+# OR close and reopen the terminal
 ```
 
-## ⚡ Sık Kullanılan Komutlar
+## ⚡ Frequently Used Commands
 
-### Sistem Yönetimi
+### System Management
 ```bash
-reload              # .zshrc'yi yeniden yükle
-zshconfig           # .zshrc'yi düzenle
-pluginconfig        # Plugin listesini düzenle
-antidote update     # Tüm pluginleri güncelle
+reload              # Reload .zshrc
+zshconfig           # Edit .zshrc
+pluginconfig        # Edit plugin list
+antidote update     # Update all plugins
 ```
 
-### Modern CLI Araçları
+### Modern CLI Tools
 ```bash
-# Zoxide (Akıllı CD)
-z documents         # Sık kullanılan dizine git
-zi                  # İnteraktif seçim
+# Zoxide (Smart CD)
+z documents         # Go to frequent directory
+zi                  # Interactive selection
 
 # FZF (Fuzzy Finder)
-Ctrl+R             # Komut geçmişinde ara
-Ctrl+T             # Dosya ara
-Alt+C              # Dizin ara
+Ctrl+R             # Search command history
+Ctrl+T             # Search files
+Alt+C              # Search directories
 
 # Eza (Modern ls)
-ls                 # İkonlarla liste
-ll                 # Detaylı liste
-lt                 # Ağaç görünümü
+ls                 # List with icons
+ll                 # Detailed list
+lt                 # Tree view
 ```
 
-### Git (Kısayollar)
+### Git (Shortcuts)
 ```bash
 gs                 # git status
 ga .               # git add .
@@ -56,12 +56,12 @@ di                 # docker images
 dc up -d           # docker-compose up
 ```
 
-## 🔧 Plugin Yönetimi
+## 🔧 Plugin Management
 
-### Plugin Ekleme
+### Adding Plugins
 
-1. `~/.zsh_plugins.txt` dosyasını aç
-2. Plugin ekle:
+1. Open `~/.zsh_plugins.txt`
+2. Add plugin:
 ```
 # GitHub repo
 username/repository
@@ -72,9 +72,9 @@ ohmyzsh/ohmyzsh path:plugins/plugin-name
 # Local plugin
 /path/to/plugin
 ```
-3. `reload` komutunu çalıştır
+3. Run `reload` command
 
-### Popüler Pluginler
+### Popular Plugins
 
 **Developer Tools:**
 ```
@@ -94,160 +94,160 @@ zsh-users/zsh-completions
 Aloxaf/fzf-tab
 ```
 
-## 🎨 Starship Prompt Özelleştirme
+## 🎨 Starship Prompt Customization
 
 ```bash
-# Config dosyasını düzenle
+# Edit config file
 vim ~/.config/starship.toml
 
-# Hazır presetleri dene
+# Try ready-made presets
 starship preset nerd-font-symbols -o ~/.config/starship.toml
 starship preset pastel-powerline -o ~/.config/starship.toml
 starship preset bracketed-segments -o ~/.config/starship.toml
 ```
 
-**Tüm presetler:** https://starship.rs/presets/
+**All presets:** https://starship.rs/presets/
 
-## 🐛 Sorun Giderme
+## 🐛 Troubleshooting
 
-### Plugin Çalışmıyor
+### Plugin Not Working
 ```bash
 rm -f ~/.zsh_plugins.zsh
 reload
 ```
 
-### Yavaş Açılış
+### Slow Startup
 ```bash
-# Startup zamanını ölç
+# Measure startup time
 for i in $(seq 1 10); do /usr/bin/time zsh -i -c exit; done
 
-# Gereksiz pluginleri kaldır
+# Remove unnecessary plugins
 vim ~/.zsh_plugins.txt
 ```
 
-### Completion Sorunları
+### Completion Issues
 ```bash
 rm -f ~/.zcompdump*
 exec zsh
 ```
 
-### Eski Haline Dön
+### Revert to Previous State
 ```bash
-# Backup'ı kontrol et
+# Check backup
 ls -la ~/.zshrc.backup.*
 
-# Geri yükle
+# Restore
 mv ~/.zshrc.backup.YYYYMMDD_HHMMSS ~/.zshrc
 exec zsh
 ```
 
-## ⌨️ Klavye Kısayolları
+## ⌨️ Keyboard Shortcuts
 
 ### Navigation
 ```
-Ctrl+A             # Satır başı
-Ctrl+E             # Satır sonu
-Ctrl+U             # Satırı sil
-Ctrl+K             # Sonuna kadar sil
-Ctrl+W             # Kelime sil
+Ctrl+A             # Beginning of line
+Ctrl+E             # End of line
+Ctrl+U             # Delete line
+Ctrl+K             # Delete to end
+Ctrl+W             # Delete word
 ```
 
 ### History
 ```
-Ctrl+R             # History'de ara (FZF)
+Ctrl+R             # Search history (FZF)
 ↑ / ↓              # History navigation
-!!                 # Son komutu tekrarla
-!$                 # Son argümanı kullan
+!!                 # Repeat last command
+!$                 # Use last argument
 ```
 
 ### Directory
 ```
-cd -               # Önceki dizine dön
-..                 # Üst dizin
-...                # İki üst dizin
-....               # Üç üst dizin
+cd -               # Go to previous directory
+..                 # Go up one directory
+...                # Go up two directories
+....               # Go up three directories
 ```
 
-## 📁 Önemli Dosyalar
+## 📁 Important Files
 
 ```
-~/.zshrc                      # Ana konfigürasyon
-~/.zsh_plugins.txt            # Plugin listesi
-~/.zsh_plugins.zsh            # Generated plugins (dokunma!)
+~/.zshrc                      # Main configuration
+~/.zsh_plugins.txt            # Plugin list
+~/.zsh_plugins.zsh            # Generated plugins (do not touch!)
 ~/.config/starship.toml       # Starship prompt config
-~/.antidote/                  # Antidote kurulumu
-~/.zsh_history                # Komut geçmişi
+~/.antidote/                  # Antidote installation
+~/.zsh_history                # Command history
 ```
 
 ## 🔥 Pro Tips
 
-1. **Tab Completion**: Her yerde tab'a bas
+1. **Tab Completion**: Press tab everywhere
    ```bash
-   git che<TAB>     # Tamamlar: checkout
-   docker ps<TAB>   # Container seçenekleri
+   git che<TAB>     # Completes: checkout
+   docker ps<TAB>   # Container options
    ```
 
-2. **History Search**: Kısmi komut + ↑/↓
+2. **History Search**: Partial command + ↑/↓
    ```bash
-   git <↑>          # git ile başlayan komutlar
+   git <↑>          # Commands starting with git
    ```
 
-3. **Zoxide Magic**: Sadece dizin adı yeter
+3. **Zoxide Magic**: Just directory name is enough
    ```bash
    z proj           # ~/projects/my-project
    ```
 
-4. **FZF Preview**: Ctrl+R ile komut ara, önizle
+4. **FZF Preview**: Search command with Ctrl+R, preview
    
-5. **Alias Zincirleme**: Kendi workflow'unu yarat
+5. **Alias Chaining**: Create your own workflow
    ```bash
    alias gpl='git pull && git log --oneline -5'
    ```
 
-## 🎓 Öğrenme Yolu
+## 🎓 Learning Path
 
-### Gün 1: Temel Kullanım
-- `reload`, `zshconfig` komutlarını öğren
-- Git kısayollarını dene (gs, ga, gc)
-- FZF ile history aramasını keşfet (Ctrl+R)
+### Day 1: Basic Usage
+- Learn `reload`, `zshconfig` commands
+- Try Git shortcuts (gs, ga, gc)
+- Discover history search with FZF (Ctrl+R)
 
-### Gün 2: Modern Tools
-- Zoxide'i kullanmaya başla (z komutu)
-- Eza ile dosya listele (ll, lt)
-- Tab completion'ı keşfet
+### Day 2: Modern Tools
+- Start using Zoxide (z command)
+- List files with Eza (ll, lt)
+- Discover tab completion
 
-### Gün 3: Özelleştirme
-- Kendi alias'larını ekle
-- Plugin listesini düzenle
-- Starship prompt'u özelleştir
+### Day 3: Customization
+- Add your own aliases
+- Edit plugin list
+- Customize Starship prompt
 
-### Hafta 1: Pro Level
-- Custom function'lar yaz
-- Keyboard shortcut'ları ezbere
-- Workflow'unu optimize et
+### Week 1: Pro Level
+- Write custom functions
+- Memorize keyboard shortcuts
+- Optimize your workflow
 
-## 📊 Performans Metrikleri
+## 📊 Performance Metrics
 
 **Oh My Zsh → Antidote:**
 ```
-Startup: 500ms → 50ms   (10x hızlı)
-Memory:  40MB → 15MB     (62% azalma)
-Plugins: 20 → 20         (aynı özellikler)
+Startup: 500ms → 50ms   (10x faster)
+Memory:  40MB → 15MB     (62% reduction)
+Plugins: 20 → 20         (same features)
 ```
 
-## 🆘 Yardım Al
+## 🆘 Get Help
 
-**Sorun mu var?**
+**Issue?**
 
-1. README.md dosyasına bak
-2. Backup'ları kullan
-3. Sıfırdan kurulum yap
+1. Check README.md file
+2. Use backups
+3. Install from scratch
 
-**Daha fazla bilgi:**
+**More info:**
 - Antidote: https://getantidote.github.io/
 - Starship: https://starship.rs/
 - Awesome Zsh: https://github.com/unixorn/awesome-zsh-plugins
 
 ---
 
-**Keyifli kullanımlar! 🚀**
+**Happy coding! 🚀**

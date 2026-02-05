@@ -1,46 +1,46 @@
-# 🚀 Antidote Kurulum Rehberi
+# 🚀 Antidote Installation Guide
 
-Modern, hızlı ve performanslı Zsh setup'ı için kapsamlı kurulum scripti.
+Comprehensive installation script for a modern, fast, and high-performance Zsh setup.
 
-## 📦 İçerik
+## 📦 Contents
 
-Bu kurulum scripti şunları içerir:
+This installation script includes:
 
 ### Plugin Manager
-- **Antidote** - Ultra-hızlı, native Zsh plugin manager
+- **Antidote** - Ultra-fast, native Zsh plugin manager
 
-### Modern CLI Araçları
-- **Starship** - Hızlı, özelleştirilebilir prompt
-- **fzf** - Fuzzy finder (Ctrl+R ile history search)
-- **zoxide** - Akıllı cd (z komutu)
-- **bat** - Renkli cat
-- **eza** - Modern ls alternatifi
+### Modern CLI Tools
+- **Starship** - Fast, customizable prompt
+- **fzf** - Fuzzy finder (History search with Ctrl+R)
+- **zoxide** - Smart cd (z command)
+- **bat** - Colorful cat
+- **eza** - Modern ls alternative
 
-### Zsh Pluginleri
-- zsh-autosuggestions - Komut önerileri
-- zsh-syntax-highlighting - Syntax renklendirme
-- zsh-completions - Gelişmiş completion
-- zsh-history-substring-search - History arama
-- fzf-tab - Tab completion için fzf
-- Oh My Zsh plugin'leri (git, docker, kubectl, vs.)
+### Zsh Plugins
+- zsh-autosuggestions - Command suggestions
+- zsh-syntax-highlighting - Syntax highlighting
+- zsh-completions - Advanced completion
+- zsh-history-substring-search - History search
+- fzf-tab - fzf for tab completion
+- Oh My Zsh plugins (git, docker, kubectl, etc.)
 
-## 🎯 Kurulum
+## 🎯 Installation
 
-### Hızlı Kurulum
+### Quick Install
 
 ```bash
-# Scripti çalıştır
+# Run the script
 bash install-antidote.sh
 
-# Shell'i yeniden başlat
+# Restart the shell
 exec zsh
 ```
 
-### Manuel Adımlar
+### Manual Steps
 
-Eğer adım adım ilerlemek istersen:
+If you want to proceed step by step:
 
-#### 1. Homebrew Paketleri
+#### 1. Homebrew Packages
 
 ```bash
 brew install starship fzf zoxide bat eza
@@ -52,35 +52,35 @@ brew install starship fzf zoxide bat eza
 git clone --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote
 ```
 
-#### 3. Konfigürasyon
+#### 3. Configuration
 
-Script otomatik olarak şunları oluşturur:
-- `~/.zshrc` - Ana konfigürasyon
-- `~/.zsh_plugins.txt` - Plugin listesi
-- `~/.config/starship.toml` - Starship prompt ayarları
+The script automatically generates:
+- `~/.zshrc` - Main configuration
+- `~/.zsh_plugins.txt` - Plugin list
+- `~/.config/starship.toml` - Starship prompt settings
 
-## 📖 Kullanım
+## 📖 Usage
 
-### Temel Komutlar
+### Basic Commands
 
 ```bash
-# Shell'i yeniden yükle
+# Reload shell
 reload
 
-# Konfigürasyonu düzenle
+# Edit configuration
 zshconfig
 
-# Plugin listesini düzenle
+# Edit plugin list
 pluginconfig
 
-# Plugin'leri güncelle
+# Update plugins
 antidote update
 ```
 
-### Modern CLI Araçları
+### Modern CLI Tools
 
 ```bash
-# Zoxide - Akıllı cd
+# Zoxide - Smart cd
 z Documents    # Frequently visited directories
 zi             # Interactive selection
 
@@ -90,7 +90,7 @@ Ctrl+T         # File search
 Alt+C          # Directory search
 
 # Eza - Modern ls
-ls             # Iconlar ile listing
+ls             # Listing with icons
 ll             # Long format with icons
 lt             # Tree view
 ```
@@ -114,131 +114,131 @@ di    # docker images
 dc    # docker-compose
 ```
 
-## 🎨 Özelleştirme
+## 🎨 Customization
 
-### Plugin Ekleme/Çıkarma
+### Adding/Removing Plugins
 
-1. `~/.zsh_plugins.txt` dosyasını aç:
+1. Open `~/.zsh_plugins.txt`:
 ```bash
 vim ~/.zsh_plugins.txt
 ```
 
-2. Plugin ekle:
+2. Add plugin:
 ```
-# GitHub'dan
+# From GitHub
 username/repository
 
-# Oh My Zsh plugin'i
+# Oh My Zsh plugin
 ohmyzsh/ohmyzsh path:plugins/plugin-name
 
 # Local plugin
 /path/to/plugin
 ```
 
-3. Shell'i yeniden yükle:
+3. Reload shell:
 ```bash
 reload
 ```
 
-### Starship Prompt Özelleştirme
+### Starship Prompt Customization
 
 ```bash
-# Config dosyasını aç
+# Open config file
 vim ~/.config/starship.toml
 
-# Preset'leri dene
+# Try presets
 starship preset nerd-font-symbols -o ~/.config/starship.toml
 starship preset pastel-powerline -o ~/.config/starship.toml
 ```
 
-Tüm preset'ler: https://starship.rs/presets/
+All presets: https://starship.rs/presets/
 
-### Alias Ekleme
+### Adding Aliases
 
-`~/.zshrc` dosyasının sonuna ekle:
+Add to the end of `~/.zshrc`:
 
 ```bash
-# Personal Additions bölümüne
+# Personal Additions section
 alias myalias='my-command'
 ```
 
 ## 🔧 Troubleshooting
 
-### Plugin Yüklenmiyor
+### Plugin Not Loading
 
 ```bash
-# Plugin cache'i temizle
+# Clear plugin cache
 rm -f ~/.zsh_plugins.zsh
 
-# Yeniden oluştur
+# Regenerate
 antidote bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.zsh
 
-# Shell'i yeniden başlat
+# Restart shell
 exec zsh
 ```
 
-### Starship Görünmüyor
+### Starship Not Visible
 
 ```bash
-# Starship kurulu mu kontrol et
+# Check if Starship is installed
 which starship
 
-# Kurulu değilse
+# If not installed
 brew install starship
 
-# Font gerekli (Nerd Font)
+# Font required (Nerd Font)
 # https://www.nerdfonts.com/
 ```
 
-###느린 Başlangıç
+### Slow Startup
 
 ```bash
-# Zsh startup zamanını ölç
+# Measure Zsh startup time
 for i in $(seq 1 10); do /usr/bin/time zsh -i -c exit; done
 
-# Plugin sayısını azalt
+# Reduce number of plugins
 vim ~/.zsh_plugins.txt
 ```
 
-### Completion Çalışmıyor
+### Completion Not Working
 
 ```bash
-# Completion cache'i sil
+# Clear completion cache
 rm -f ~/.zcompdump*
 
-# Shell'i yeniden başlat
+# Restart shell
 exec zsh
 ```
 
-## 📊 Performans Karşılaştırması
+## 📊 Performance Comparison
 
-### Oh My Zsh (Önceki)
+### Oh My Zsh (Previous)
 ```
 Startup time: ~500-1000ms
 Plugins: 10-20
 Memory: ~40-50MB
 ```
 
-### Antidote (Şimdi)
+### Antidote (Now)
 ```
 Startup time: ~50-150ms
-Plugins: 10-20 (aynı)
+Plugins: 10-20 (same)
 Memory: ~15-20MB
 ```
 
-**~80% daha hızlı! ⚡**
+**~80% faster! ⚡**
 
-## 🔄 Oh My Zsh'den Geçiş
+## 🔄 Migration from Oh My Zsh
 
-Script otomatik olarak:
-- ✅ Mevcut `.zshrc`'yi backup alır
-- ✅ Oh My Zsh plugin'lerini kullanmaya devam eder
-- ✅ Tüm alias'ları korur
-- ❌ Oh My Zsh'yi **silmez** (backup'ta kalır)
+The script automatically:
+- ✅ Backs up existing `.zshrc`
+- ✅ Continues using Oh My Zsh plugins
+- ✅ Preserves all aliases
+- ❌ Does **not** delete Oh My Zsh (kept in backup)
 
-### Manuel Geçiş İpuçları
+### Manual Migration Tips
 
-1. Oh My Zsh plugin'lerini Antidote formatına çevir:
+1. Convert Oh My Zsh plugins to Antidote format:
 
 **Oh My Zsh:**
 ```bash
@@ -252,17 +252,17 @@ ohmyzsh/ohmyzsh path:plugins/docker
 ohmyzsh/ohmyzsh path:plugins/kubectl
 ```
 
-2. Theme'ler artık Starship kullanıyor:
+2. Themes now use Starship:
 ```bash
-# Eski: ZSH_THEME="agnoster"
-# Yeni: Starship preset'leri kullan
+# Old: ZSH_THEME="agnoster"
+# New: Use Starship presets
 ```
 
-## 🌟 Önerilen Ek Plugin'ler
+## 🌟 Recommended Additional Plugins
 
 ### Development
 ```
-# ~/.zsh_plugins.txt'ye ekle
+# Add to ~/.zsh_plugins.txt
 zsh-users/zsh-docker-aliases
 lukechilds/zsh-nvm
 zdharma-continuum/fast-syntax-highlighting
@@ -281,81 +281,81 @@ ohmyzsh/ohmyzsh path:plugins/macos
 ohmyzsh/ohmyzsh path:plugins/brew
 ```
 
-## 📚 Kaynaklar
+## 📚 Resources
 
-- [Antidote Dokümantasyon](https://getantidote.github.io/)
-- [Starship Dokümantasyon](https://starship.rs/)
+- [Antidote Documentation](https://getantidote.github.io/)
+- [Starship Documentation](https://starship.rs/)
 - [Awesome Zsh Plugins](https://github.com/unixorn/awesome-zsh-plugins)
 - [Zsh Best Practices](https://wiki.archlinux.org/title/Zsh)
 
-## 🆘 Destek
+## 🆘 Support
 
-Sorun mu yaşıyorsun?
+Having trouble?
 
-1. Backup'ları kontrol et:
+1. Check backups:
 ```bash
 ls -la ~/.zshrc.backup.*
 ls -la ~/.oh-my-zsh.backup.*
 ```
 
-2. Eski config'e dön:
+2. Revert to old config:
 ```bash
 mv ~/.zshrc.backup.YYYYMMDD_HHMMSS ~/.zshrc
 exec zsh
 ```
 
-3. Sıfırdan başla:
+3. Start fresh:
 ```bash
 rm -rf ~/.antidote ~/.zsh_plugins*
 bash install-antidote.sh
 ```
 
-## 🎓 Öğrenme Kaynakları
+## 🎓 Learning Resources
 
 ### Zsh Shortcuts
 ```
-Ctrl+A    # Satır başına
-Ctrl+E    # Satır sonuna
-Ctrl+U    # Satırı sil
-Ctrl+K    # Sonuna kadar sil
-Ctrl+W    # Kelime sil
+Ctrl+A    # Beginning of line
+Ctrl+E    # End of line
+Ctrl+U    # Delete line
+Ctrl+K    # Delete to end
+Ctrl+W    # Delete word
 Ctrl+R    # History search (fzf)
 Ctrl+L    # Clear screen
 ```
 
 ### Directory Navigation
 ```
-cd -      # Önceki dizine dön
-cd ~      # Home'a git
-cd ..     # Üst dizin
+cd -      # Go to previous directory
+cd ~      # Go to Home
+cd ..     # Go up one directory
 ..        # cd .. (alias)
 ...       # cd ../.. (alias)
-z docs    # Zoxide ile hızlı git
+z docs    # Fast navigation with Zoxide
 ```
 
 ## ✨ Pro Tips
 
-1. **Tab Completion Kullan**: Her şey için tab'a bas
-2. **History Search**: `Ctrl+R` ile geçmişte ara
-3. **Zoxide Öğren**: Sık kullandığın dizinlere `z` ile git
-4. **Alias Yarat**: Sık kullandığın komutlar için
-5. **Git Prompt**: Branch ve status bilgisini prompt'ta gör
+1. **Use Tab Completion**: Press tab for everything
+2. **History Search**: Search past commands with `Ctrl+R`
+3. **Learn Zoxide**: Navigate to frequent directories with `z`
+4. **Create Aliases**: For frequently used commands
+5. **Git Prompt**: See branch and status info in prompt
 
-## 🔒 Güvenlik
+## 🔒 Security
 
-Script şunları yapar:
-- ✅ Tüm mevcut dosyaları backup alır
-- ✅ Hiçbir şeyi silmez
-- ✅ Hata durumunda çıkar (set -e)
-- ✅ Sadece kullanıcı dizininde çalışır
+The script:
+- ✅ Backs up all existing files
+- ✅ Deletes nothing
+- ✅ Exits on error (set -e)
+- ✅ Runs only in user directory
 
 ## 📝 Changelog
 
 ### v1.0.0
-- İlk release
-- Antidote + Starship entegrasyonu
-- Modern CLI araçları
-- Kapsamlı plugin koleksiyonu
+- Initial release
+- Antidote + Starship integration
+- Modern CLI tools
+- Comprehensive plugin collection
 
 ---
 

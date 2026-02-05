@@ -1,82 +1,82 @@
-# 🎨 Nerd Font Kurulum ve Yapılandırma Rehberi
+# 🎨 Nerd Font Installation and Configuration Guide
 
-## Neden Nerd Font?
+## Why Nerd Font?
 
-Starship ve modern terminal araçları özel semboller kullanır:
-- 📁 Klasör ikonları
+Starship and modern terminal tools use special symbols:
+- 📁 Folder icons
 -  Git branch
 -  Docker
--  Node.js versiyonu
--  Python, Go, Rust ikonları
+-  Node.js version
+-  Python, Go, Rust icons
 
-**Normal font:** ❌ Bozuk kutucuklar görürsün
-**Nerd Font:** ✅ Güzel ikonlar görürsün
+**Normal font:** ❌ You see broken boxes
+**Nerd Font:** ✅ You see beautiful icons
 
 ---
 
-## 🚀 Hızlı Kurulum
+## 🚀 Quick Install
 
 ```bash
-# Scripti çalıştır
+# Run the script
 bash install-nerd-fonts.sh
 
-# Font seç ve kur
-# Terminal ayarlarını yap (aşağıda detaylı)
+# Select font and install
+# Configure terminal settings (detailed below)
 ```
 
 ---
 
-## 📦 Önerilen Fontlar
+## 📦 Recommended Fonts
 
-### 1. **JetBrainsMono Nerd Font** ⭐ (En Çok Önerilen)
+### 1. **JetBrainsMono Nerd Font** ⭐ (Most Recommended)
 ```bash
 brew install --cask font-jetbrains-mono-nerd-font
 ```
-**Neden?**
-- Özel olarak kodlama için tasarlandı
-- Mükemmel okunabilirlik
-- 0, O, l, 1 gibi karakterler net ayrılır
-- JetBrains IDE'lerinde varsayılan
+**Why?**
+- Designed specifically for coding
+- Excellent readability
+- Characters like 0, O, l, 1 are clearly distinguished
+- Default in JetBrains IDEs
 
-**Kimler için:** Herkes, özellikle full-time developer'lar
+**For whom:** Everyone, especially full-time developers
 
 ---
 
-### 2. **FiraCode Nerd Font** (Ligature Sevenlere)
+### 2. **FiraCode Nerd Font** (For Ligature Lovers)
 ```bash
 brew install --cask font-fira-code-nerd-font
 ```
-**Neden?**
+**Why?**
 - Programming ligatures (!=, =>, >=, <=)
-- Modern ve temiz
-- VS Code kullanıcıları arasında popüler
+- Modern and clean
+- Popular among VS Code users
 
-**Kimler için:** Ligature seven developer'lar
+**For whom:** Developers who love ligatures
 
 ---
 
-### 3. **Hack Nerd Font** (Minimal Sevenler)
+### 3. **Hack Nerd Font** (For Minimalists)
 ```bash
 brew install --cask font-hack-nerd-font
 ```
-**Neden?**
-- Açık kaynak
-- Clean ve minimal
-- Hafif
+**Why?**
+- Open source
+- Clean and minimal
+- Lightweight
 
-**Kimler için:** Minimalist developer'lar
+**For whom:** Minimalist developers
 
 ---
 
-### 4. **MesloLG Nerd Font** (Powerline Klasiği)
+### 4. **MesloLG Nerd Font** (Powerline Classic)
 ```bash
 brew install --cask font-meslo-lg-nerd-font
 ```
-**Neden?**
-- Powerline prompt'lar için optimize
-- Geniş karakter desteği
+**Why?**
+- Optimized for Powerline prompts
+- Wide character support
 
-**Kimler için:** Oh My Zsh'den geçenler
+**For whom:** Those migrating from Oh My Zsh
 
 ---
 
@@ -84,95 +84,95 @@ brew install --cask font-meslo-lg-nerd-font
 ```bash
 brew install --cask font-caskaydia-cove-nerd-font
 ```
-**Neden?**
-- Microsoft'un Cascadia Code'u
-- Modern ve profesyonel
-- Windows Terminal varsayılanı
+**Why?**
+- Microsoft's Cascadia Code
+- Modern and professional
+- Default in Windows Terminal
 
-**Kimler için:** Windows ile çalışanlar
+**For whom:** Those working with Windows
 
 ---
 
-## 🔧 Terminal Yapılandırması
+## 🔧 Terminal Configuration
 
 ### macOS Terminal.app
 
-1. **Terminal'i aç**
+1. **Open Terminal**
 2. **Terminal → Preferences** (⌘,)
-3. **Profiles → Text** sekmesi
-4. **Font → Change** butonuna tıkla
-5. **Family:** "JetBrainsMono Nerd Font" seç
-   - **Typeface:** Regular veya Medium
-   - **Size:** 13 veya 14
-6. **OK** → Profili **Default** yap
+3. **Profiles → Text** tab
+4. Click **Font → Change** button
+5. **Family:** Select "JetBrainsMono Nerd Font"
+   - **Typeface:** Regular or Medium
+   - **Size:** 13 or 14
+6. **OK** → Set profile as **Default**
 
-**Terminal'i yeniden başlat**
+**Restart Terminal**
 
 ---
 
-### iTerm2 (Önerilen) 🌟
+### iTerm2 (Recommended) 🌟
 
-#### Kurulum
+#### Installation
 ```bash
 brew install --cask iterm2
 ```
 
-#### Yapılandırma
+#### Configuration
 
 1. **iTerm2 → Preferences** (⌘,)
 
-2. **Profiles → Text** sekmesi:
+2. **Profiles → Text** tab:
    - **Font:** JetBrainsMono Nerd Font
    - **Size:** 13-14
-   - **Use ligatures:** ✓ (FiraCode için)
+   - **Use ligatures:** ✓ (For FiraCode)
    - **Anti-aliased:** ✓
 
-3. **Profiles → Colors** sekmesi (Opsiyonel):
+3. **Profiles → Colors** tab (Optional):
    - **Color Presets:** Import
-   - Önerilen temalar:
+   - Recommended themes:
      - Gruvbox Dark
      - Nord
      - Dracula
      - Tomorrow Night
 
-4. **Profiles → Window** sekmesi:
+4. **Profiles → Window** tab:
    - **Transparency:** 10-15%
    - **Blur:** 15-20
 
-5. **Profiles → Terminal** sekmesi:
+5. **Profiles → Terminal** tab:
    - **Scrollback lines:** 10000
 
-6. **Default profile olarak ayarla**
+6. **Set as Default profile**
 
 #### iTerm2 Color Schemes
 
 ```bash
-# Gruvbox indirmek için
+# To download Gruvbox
 curl -L https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors -o ~/Downloads/Gruvbox.itermcolors
 
-# iTerm2'de: Profiles → Colors → Color Presets → Import
-# ~/Downloads/Gruvbox.itermcolors dosyasını seç
+# In iTerm2: Profiles → Colors → Color Presets → Import
+# Select ~/Downloads/Gruvbox.itermcolors file
 ```
 
-**Popüler temalar:** https://iterm2colorschemes.com/
+**Popular themes:** https://iterm2colorschemes.com/
 
 ---
 
-### VS Code Entegre Terminal
+### VS Code Integrated Terminal
 
-1. **VS Code'u aç**
+1. **Open VS Code**
 2. **Settings** (⌘,)
-3. **Ara:** `terminal font`
-4. **Terminal › Integrated: Font Family** bulun
-5. Değer olarak ekle:
+3. **Search:** `terminal font`
+4. Find **Terminal › Integrated: Font Family**
+5. Add as value:
    ```
    'JetBrainsMono Nerd Font', 'FiraCode Nerd Font', monospace
    ```
 6. **Font Size:** 13 (Terminal › Integrated: Font Size)
 
-**Ligature için (FiraCode):**
-7. **Ara:** `editor.fontLigatures`
-8. ✓ işaretle
+**For Ligatures (FiraCode):**
+7. **Search:** `editor.fontLigatures`
+8. Check ✓
 
 **settings.json:**
 ```json
@@ -193,18 +193,18 @@ curl -L https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/
 brew install --cask warp
 ```
 
-**Ayarlar:**
+**Settings:**
 1. Settings → Appearance → Text
 2. **Font:** JetBrainsMono Nerd Font
 3. **Size:** 13
 
-Warp varsayılan olarak güzel, ekstra ayar gerekmez!
+Warp is beautiful by default, no extra configuration needed!
 
 ---
 
 ## ✅ Font Test
 
-Terminal'de şunu çalıştır:
+Run this in Terminal:
 
 ```bash
 echo "                   "
@@ -217,33 +217,33 @@ echo "Python:  3.11"
 echo "Rust:  1.75"
 ```
 
-**Görmen gerekenler:**
-- ✅ Renkli ikonlar
-- ✅ Git branch sembolü
-- ✅ Dil/araç ikonları
+**What you should see:**
+- ✅ Colorful icons
+- ✅ Git branch symbol
+- ✅ Language/tool icons
 
-**Göremiyorsan:**
-- ❌ Bozuk kutucuklar (□)
-- ❌ Soru işaretleri (?)
+**If you don't see them:**
+- ❌ Broken boxes (□)
+- ❌ Question marks (?)
 
-→ Font doğru yüklenmemiş veya terminal'de seçilmemiş
+→ Font is not installed correctly or not selected in terminal
 
 ---
 
-## 🎨 Starship ile Test
+## 🎨 Test with Starship
 
 ```bash
-# Herhangi bir git repo'suna git
+# Go to any git repo
 cd ~/your-project
 
-# Starship prompt'u göreceksin
-# Şunları görmeli:
-#  - Klasör ikonu
-#  - Git branch ikonu
-#  - Dil versiyonları (varsa)
+# You will see Starship prompt
+# Should see:
+#  - Folder icon
+#  - Git branch icon
+#  - Language versions (if any)
 ```
 
-**Örnek görünüm:**
+**Example view:**
 ```
 ╭─  ~/projects/my-app  main 
 ╰─➜
@@ -253,36 +253,36 @@ cd ~/your-project
 
 ## 🔧 Troubleshooting
 
-### İkonlar görünmüyor
+### Icons not showing
 
-**1. Font doğru mu?**
+**1. Is Font correct?**
 ```bash
-# Terminal'de font ismini kontrol et
+# Check font name in Terminal
 # macOS Terminal: Preferences → Profiles → Text
 # iTerm2: Preferences → Profiles → Text
 ```
 
-**2. Nerd Font kurulu mu?**
+**2. Is Nerd Font installed?**
 ```bash
-# Font Book.app'i aç (macOS)
-# "Nerd Font" ara
-# Kurulu olmalı
+# Open Font Book.app (macOS)
+# Search "Nerd Font"
+# It should be installed
 ```
 
-**3. Terminal'i yeniden başlat**
+**3. Restart Terminal**
 ```bash
-# Tamamen kapat ve tekrar aç
-# Ayarlar bazen restart gerektirir
+# Completely close and reopen
+# Settings sometimes require restart
 ```
 
-**4. Font cache temizle (macOS)**
+**4. Clear Font cache (macOS)**
 ```bash
 sudo atsutil databases -remove
 sudo atsutil server -shutdown
 sudo atsutil server -ping
 ```
 
-### Ligature çalışmıyor (FiraCode)
+### Ligatures not working (FiraCode)
 
 **iTerm2:**
 - Preferences → Profiles → Text
@@ -293,9 +293,9 @@ sudo atsutil server -ping
 "editor.fontLigatures": true
 ```
 
-### Bazı karakterler hala bozuk
+### Some characters still broken
 
-Birden fazla Nerd Font kur, fallback olsun:
+Install multiple Nerd Fonts, as fallback:
 
 **VS Code settings.json:**
 ```json
@@ -304,7 +304,7 @@ Birden fazla Nerd Font kur, fallback olsun:
 
 ---
 
-## 📚 Font Kaynakları
+## 📚 Font Resources
 
 - **Nerd Fonts:** https://www.nerdfonts.com/
 - **Font Previews:** https://www.programmingfonts.org/
@@ -315,18 +315,18 @@ Birden fazla Nerd Font kur, fallback olsun:
 
 ## 💡 Pro Tips
 
-### 1. Font Boyutu
-- **13-14pt:** En okunaklı
-- **12pt:** Çok küçük
-- **15pt+:** Büyük ekranlarda
+### 1. Font Size
+- **13-14pt:** Most readable
+- **12pt:** Too small
+- **15pt+:** On large screens
 
-### 2. Ligature
-- FiraCode kullanıyorsan aç
-- Diğer fontlarda genelde kapalı
+### 2. Ligatures
+- Turn on if using FiraCode
+- Generally off in other fonts
 
-### 3. Birden Fazla Font
+### 3. Multiple Fonts
 ```bash
-# Hepsini kur, duruma göre değiştir
+# Install all, switch as needed
 brew install --cask \
   font-jetbrains-mono-nerd-font \
   font-fira-code-nerd-font \
@@ -334,12 +334,12 @@ brew install --cask \
 ```
 
 ### 4. Editor vs Terminal
-- **Editor:** Okumak için optimize (14pt)
-- **Terminal:** Bilgi yoğun (13pt)
+- **Editor:** Optimized for reading (14pt)
+- **Terminal:** Information dense (13pt)
 
 ---
 
-## 🎯 Önerilen Kombinasyonlar
+## 🎯 Recommended Combinations
 
 ### Minimalist Developer
 ```
@@ -352,7 +352,7 @@ Size: 13pt
 ### Modern Developer
 ```
 Font: JetBrainsMono Nerd Font
-Terminal: Warp veya iTerm2
+Terminal: Warp or iTerm2
 Theme: Nord
 Size: 14pt
 ```

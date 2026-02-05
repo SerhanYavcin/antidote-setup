@@ -19,7 +19,7 @@ BACKUP_SUFFIX=".backup.$(date +%Y%m%d_%H%M%S)"
 
 echo -e "${CYAN}"
 echo "╔════════════════════════════════════════╗"
-echo "║   🚀 Antidote Kurulum Scripti 🚀      ║"
+echo "║   🚀 Antidote Installation Script 🚀   ║"
 echo "╚════════════════════════════════════════╝"
 echo -e "${NC}"
 
@@ -41,21 +41,21 @@ print_error() {
 }
 
 # 1. Check system
-print_status "Sistem kontrol ediliyor..."
-echo "   Zsh versiyonu: $(zsh --version)"
+print_status "Checking system..."
+echo "   Zsh version: $(zsh --version)"
 echo "   Shell: $SHELL"
 echo "   OS: $(uname -s)"
 echo ""
 
 # 2. Backup existing configs
 if [ -f "$HOME/.zshrc" ]; then
-    print_warning "Mevcut .zshrc yedekleniyor..."
+    print_warning "Backing up existing .zshrc..."
     cp "$HOME/.zshrc" "$HOME/.zshrc${BACKUP_SUFFIX}"
     print_success "Backup: ~/.zshrc${BACKUP_SUFFIX}"
 fi
 
 if [ -d "$HOME/.oh-my-zsh" ]; then
-    print_warning "Oh My Zsh tespit edildi (backup alınacak, silinmeyecek)"
+    print_warning "Oh My Zsh detected (backing up, will not be deleted)"
     if [ ! -d "$HOME/.oh-my-zsh${BACKUP_SUFFIX}" ]; then
         cp -r "$HOME/.oh-my-zsh" "$HOME/.oh-my-zsh${BACKUP_SUFFIX}"
         print_success "Backup: ~/.oh-my-zsh${BACKUP_SUFFIX}"
@@ -65,15 +65,15 @@ fi
 echo ""
 
 # 3. Install Homebrew packages
-print_status "Homebrew paketleri kontrol ediliyor..."
+print_status "Checking Homebrew packages..."
 
 check_and_install() {
     if ! command -v $1 &> /dev/null; then
-        print_status "$1 kuruluyor..."
+        print_status "Installing $1..."
         brew install $1
-        print_success "$1 kuruldu"
+        print_success "$1 installed"
     else
-        print_success "$1 zaten kurulu"
+        print_success "$1 already installed"
     fi
 }
 
@@ -86,20 +86,20 @@ check_and_install "eza"
 echo ""
 
 # 4. Install Antidote
-print_status "Antidote kuruluyor..."
+print_status "Installing Antidote..."
 
 if [ -d "$ANTIDOTE_DIR" ]; then
-    print_warning "Antidote zaten kurulu, güncelleniyor..."
+    print_warning "Antidote already installed, updating..."
     cd "$ANTIDOTE_DIR" && git pull
 else
     git clone --depth=1 https://github.com/mattmc3/antidote.git "$ANTIDOTE_DIR"
 fi
 
-print_success "Antidote kuruldu: $ANTIDOTE_DIR"
+print_success "Antidote installed: $ANTIDOTE_DIR"
 echo ""
 
 # 5. Create plugin list
-print_status "Plugin listesi oluşturuluyor..."
+print_status "Creating plugin list..."
 
 cat > "$HOME/.zsh_plugins.txt" << 'PLUGINS'
 # Oh My Zsh libs
@@ -128,11 +128,11 @@ zsh-users/zsh-history-substring-search
 Aloxaf/fzf-tab
 PLUGINS
 
-print_success "Plugin listesi oluşturuldu: ~/.zsh_plugins.txt"
+print_success "Plugin list created: ~/.zsh_plugins.txt"
 echo ""
 
 # 6. Create new .zshrc
-print_status "Yeni .zshrc oluşturuluyor..."
+print_status "Creating new .zshrc..."
 
 cat > "$HOME/.zshrc" << 'ZSHRC'
 # ============================================
@@ -342,11 +342,11 @@ DISABLE_UPDATE_PROMPT="true"
 
 ZSHRC
 
-print_success "Yeni .zshrc oluşturuldu"
+print_success "New .zshrc created"
 echo ""
 
 # 7. Create Starship config
-print_status "Starship konfigürasyonu oluşturuluyor..."
+print_status "Creating Starship configuration..."
 
 mkdir -p "$HOME/.config"
 
@@ -431,48 +431,48 @@ format = "on [$hostname](bold red) "
 disabled = false
 STARSHIP
 
-print_success "Starship config oluşturuldu: ~/.config/starship.toml"
+print_success "Starship config created: ~/.config/starship.toml"
 echo ""
 
 # 8. Setup fzf
-print_status "FZF ayarları yapılıyor..."
+print_status "Configuring FZF..."
 if command -v fzf &> /dev/null; then
     $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
-    print_success "FZF keybindings kuruldu"
+    print_success "FZF keybindings installed"
 fi
 
 echo ""
 echo -e "${GREEN}"
 echo "╔════════════════════════════════════════╗"
-echo "║        ✅ Kurulum Tamamlandı! ✅       ║"
+echo "║        ✅ Installation Complete! ✅    ║"
 echo "╚════════════════════════════════════════╝"
 echo -e "${NC}"
 
 echo ""
-echo -e "${CYAN}📝 Sonraki Adımlar:${NC}"
+echo -e "${CYAN}📝 Next Steps:${NC}"
 echo ""
-echo "1. Yeni shell başlat:"
+echo "1. Start new shell:"
 echo -e "   ${YELLOW}exec zsh${NC}"
 echo ""
-echo "2. Veya terminal'i yeniden başlat"
+echo "2. Or restart terminal"
 echo ""
-echo "3. Plugin güncellemek için:"
+echo "3. To update plugins:"
 echo -e "   ${YELLOW}antidote update${NC}"
 echo ""
-echo "4. Konfigürasyonu düzenle:"
+echo "4. Edit configuration:"
 echo -e "   ${YELLOW}vim ~/.zshrc${NC}"
 echo -e "   ${YELLOW}vim ~/.zsh_plugins.txt${NC}"
 echo ""
-echo -e "${CYAN}📚 Kullanışlı Komutlar:${NC}"
+echo -e "${CYAN}📚 Useful Commands:${NC}"
 echo ""
-echo "  • reload        - .zshrc'yi yeniden yükle"
-echo "  • zshconfig     - .zshrc'yi düzenle"
-echo "  • pluginconfig  - plugin listesini düzenle"
-echo "  • antidote update - pluginleri güncelle"
+echo "  • reload        - reload .zshrc"
+echo "  • zshconfig     - edit .zshrc"
+echo "  • pluginconfig  - edit plugin list"
+echo "  • antidote update - update plugins"
 echo ""
-echo -e "${CYAN}🎨 Prompt Özelleştirme:${NC}"
+echo -e "${CYAN}🎨 Prompt Customization:${NC}"
 echo ""
 echo "  Starship: ~/.config/starship.toml"
-echo "  Preset'ler: https://starship.rs/presets/"
+echo "  Presets: https://starship.rs/presets/"
 echo ""
-echo -e "${GREEN}Keyifli kullanımlar! 🚀${NC}"
+echo -e "${GREEN}Enjoy! 🚀${NC}"

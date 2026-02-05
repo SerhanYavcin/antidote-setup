@@ -5,7 +5,7 @@
 
 set -e
 
-echo "🎨 Nerd Font Kurulum Scripti"
+echo "🎨 Nerd Font Installation Script"
 echo "=============================="
 echo ""
 
@@ -28,30 +28,30 @@ print_info() {
     echo -e "${CYAN}ℹ${NC} $1"
 }
 
-# Popüler Nerd Font'ları listele
-print_info "En popüler Nerd Font'lar:"
+# List popular Nerd Fonts
+print_info "Most Popular Nerd Fonts:"
 echo ""
-echo "1. JetBrainsMono Nerd Font    (Önerilen - Kodlama için)"
-echo "2. FiraCode Nerd Font         (Ligature desteği)"
+echo "1. JetBrainsMono Nerd Font    (Recommended - For Coding)"
+echo "2. FiraCode Nerd Font         (Ligature support)"
 echo "3. Hack Nerd Font             (Clean & readable)"
-echo "4. MesloLG Nerd Font          (Powerline uyumlu)"
+echo "4. MesloLG Nerd Font          (Powerline compatible)"
 echo "5. CascadiaCode Nerd Font     (Microsoft, modern)"
-echo "6. Hepsini kur"
+echo "6. Install All"
 echo ""
 
-read -p "Hangi font'u kurmak istersin? (1-6): " choice
+read -p "Which font would you like to install? (1-6): " choice
 
-# Font kurulum fonksiyonu
+# Font installation function
 install_font() {
     local font_name=$1
-    print_status "$font_name kuruluyor..."
+    print_status "Installing $font_name..."
     brew install --cask "font-$font_name"
-    print_success "$font_name kuruldu!"
+    print_success "$font_name installed!"
 }
 
 
 
-# Seçime göre font kur
+# Install font based on choice
 case $choice in
     1)
         install_font "jetbrains-mono-nerd-font"
@@ -74,7 +74,7 @@ case $choice in
         RECOMMENDED_FONT="CaskaydiaCove Nerd Font"
         ;;
     6)
-        print_status "Tüm popüler fontlar kuruluyor..."
+        print_status "Installing all popular fonts..."
         install_font "jetbrains-mono-nerd-font"
         install_font "fira-code-nerd-font"
         install_font "hack-nerd-font"
@@ -83,99 +83,99 @@ case $choice in
         RECOMMENDED_FONT="JetBrainsMono Nerd Font"
         ;;
     *)
-        echo "Geçersiz seçim!"
+        echo "Invalid choice!"
         exit 1
         ;;
 esac
 
 echo ""
 echo -e "${GREEN}╔═══════════════════════════════════════╗${NC}"
-echo -e "${GREEN}║     ✅ Font Kurulumu Tamamlandı!     ║${NC}"
+echo -e "${GREEN}║     ✅ Font Installation Complete!   ║${NC}"
 echo -e "${GREEN}╚═══════════════════════════════════════╝${NC}"
 echo ""
 
-echo -e "${CYAN}📝 Terminal Ayarları:${NC}"
+echo -e "${CYAN}📝 Terminal Settings:${NC}"
 echo ""
-echo "Şimdi terminal emülatörünü yapılandırman gerekiyor:"
+echo "Now you need to configure your terminal emulator:"
 echo ""
 
-# macOS default Terminal.app için talimatlar
-echo -e "${YELLOW}■ Terminal.app (macOS varsayılan):${NC}"
+# Instructions for macOS default Terminal.app
+echo -e "${YELLOW}■ Terminal.app (macOS default):${NC}"
 echo "  1. Terminal → Preferences (⌘,)"
-echo "  2. Profiles → Text sekmesi"
+echo "  2. Profiles → Text tab"
 echo "  3. Font → Change"
-echo "  4. '${RECOMMENDED_FONT}' seç"
-echo "  5. Boyut: 13-14 önerilen"
-echo "  6. 'Default' olarak ayarla"
+echo "  4. Select '${RECOMMENDED_FONT}'"
+echo "  5. Size: 13-14 recommended"
+echo "  6. Set as 'Default'"
 echo ""
 
-# iTerm2 için talimatlar
-echo -e "${YELLOW}■ iTerm2 (Önerilen terminal):${NC}"
+# Instructions for iTerm2
+echo -e "${YELLOW}■ iTerm2 (Recommended terminal):${NC}"
 echo "  1. iTerm2 → Preferences (⌘,)"
-echo "  2. Profiles → Text sekmesi"
+echo "  2. Profiles → Text tab"
 echo "  3. Font → '${RECOMMENDED_FONT}'"
 echo "  4. Size: 13-14"
-echo "  5. Use ligatures: ✓ (FiraCode için)"
+echo "  5. Use ligatures: ✓ (For FiraCode)"
 echo ""
 
-# VS Code için talimatlar
+# Instructions for VS Code
 echo -e "${YELLOW}■ VS Code Terminal:${NC}"
 echo "  1. Settings (⌘,)"
-echo "  2. 'terminal font' ara"
+echo "  2. Search 'terminal font'"
 echo "  3. Terminal › Integrated: Font Family"
-echo "  4. '${RECOMMENDED_FONT}' yaz"
+echo "  4. Type '${RECOMMENDED_FONT}'"
 echo ""
 
-# iTerm2 yoksa kur
+# Install iTerm2 if not present
 if ! command -v iTerm &> /dev/null; then
-    echo -e "${CYAN}💡 İpucu:${NC} iTerm2 daha iyi bir terminal deneyimi sunar"
-    read -p "iTerm2'yi kurmak ister misin? (y/n): " install_iterm
+    echo -e "${CYAN}💡 Tip:${NC} iTerm2 offers a better terminal experience"
+    read -p "Do you want to install iTerm2? (y/n): " install_iterm
     if [[ $install_iterm == "y" ]]; then
-        print_status "iTerm2 kuruluyor..."
+        print_status "Installing iTerm2..."
         brew install --cask iterm2
-        print_success "iTerm2 kuruldu! Applications klasöründen başlat."
+        print_success "iTerm2 installed! Launch from Applications folder."
         echo ""
-        echo "iTerm2 için önerilen ayarlar:"
-        echo "  • Color scheme: 'Gruvbox Dark' veya 'Nord'"
-        echo "  • Transparency: %10-15"
-        echo "  • Blur: Biraz"
+        echo "Recommended settings for iTerm2:"
+        echo "  • Color scheme: 'Gruvbox Dark' or 'Nord'"
+        echo "  • Transparency: 10-15%"
+        echo "  • Blur: Slight"
     fi
 fi
 
 echo ""
-echo -e "${CYAN}🎨 Font Özellikleri:${NC}"
+echo -e "${CYAN}🎨 Font Features:${NC}"
 echo ""
 
 case $choice in
     1)
         echo "JetBrainsMono Nerd Font:"
-        echo "  ✓ Özel olarak kodlama için tasarlandı"
-        echo "  ✓ Mükemmel okunabilirlik"
-        echo "  ✓ Geniş karakter desteği"
-        echo "  ✓ Tüm dev araçlarıyla uyumlu"
+        echo "  ✓ Designed specifically for coding"
+        echo "  ✓ Excellent readability"
+        echo "  ✓ Wide character support"
+        echo "  ✓ Compatible with all dev tools"
         ;;
     2)
         echo "FiraCode Nerd Font:"
         echo "  ✓ Programming ligatures (!=, =>, >=)"
-        echo "  ✓ Modern ve clean"
-        echo "  ✓ VS Code'da çok popüler"
+        echo "  ✓ Modern and clean"
+        echo "  ✓ Very popular in VS Code"
         ;;
     3)
         echo "Hack Nerd Font:"
-        echo "  ✓ Açık kaynak"
-        echo "  ✓ Yüksek okunabilirlik"
-        echo "  ✓ Klasik developer font'u"
+        echo "  ✓ Open source"
+        echo "  ✓ High readability"
+        echo "  ✓ Classic developer font"
         ;;
 esac
 
 echo ""
-echo -e "${CYAN}🔍 Test Et:${NC}"
+echo -e "${CYAN}🔍 Test:${NC}"
 echo ""
-echo "Yeni terminal aç ve şunu çalıştır:"
+echo "Open a new terminal and run this:"
 echo ""
 echo -e "${YELLOW}  echo '      '${NC}"
 echo ""
-echo "İkonları görüyorsan font çalışıyor! ✅"
+echo "If you see icons, the font is working! ✅"
 echo ""
 
-echo -e "${GREEN}Keyifli kullanımlar! 🚀${NC}"
+echo -e "${GREEN}Enjoy! 🚀${NC}"
